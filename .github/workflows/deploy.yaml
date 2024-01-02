@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: create PR to deploy latest build to tenant
+        if: env.DEPLOY != null
         uses: actions/checkout@v3
         with:
           repository: ajinkyak423/actions-poc
@@ -38,7 +39,7 @@ jobs:
          cat actions-poc/yourfile.txt
 
       - name: Create PR and Notify via Github-actions
-        if : env.DEPLOY != null    
+        if: env.DEPLOY != null    
         id: notify
         run: |
              git checkout -B ${{ env.DEPLOY }}

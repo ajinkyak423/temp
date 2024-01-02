@@ -25,7 +25,7 @@ jobs:
                echo "Current directory: $(pwd)"
 
             - name: create PR to deploy latest build to tanent
-              if : env.DEPLOY != null
+            #   if : env.DEPLOY != null
               uses: actions/checkout@v4
               with:
                 repository: ajinkyak423/actions-poc

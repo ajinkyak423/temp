@@ -16,20 +16,13 @@ jobs:
           echo "DEPLOY=$DEPLOY"
 
       - name: checkout code
-        uses: actions/checkout@v3  # Version 4 is not valid, using version 2
-
-      - name: change directory
-        run: |
-          echo "Current directory: $(pwd)"
-          cd ../..  # Adjust this based on your project structure
-          echo "Current directory: $(pwd)"
+        uses: actions/checkout@v3
 
       - name: create PR to deploy latest build to tenant
-        uses: actions/checkout@v3  # Using version 2
+        uses: actions/checkout@v3
         with:
           repository: ajinkyak423/actions-poc
-        # Add steps for creating a pull request here
-
+       
       - name: directory  
         run: |
           echo "Current directory: $(pwd)"

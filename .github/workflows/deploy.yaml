@@ -47,6 +47,7 @@ jobs:
         if: env.DEPLOY != null    
         id: notify
         run: |
+             cd ./actions-poc
              git checkout -B ${{ env.DEPLOY }}
              git config user.email "418982+github-actions[bot]@users.noreply.github.com"
              git config user.name "github-actions[bot]"

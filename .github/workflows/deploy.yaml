@@ -38,6 +38,10 @@ jobs:
          echo "time=$time" >> actions-poc/yourfile.txt
          cat actions-poc/yourfile.txt
 
+      - name: Add untracked files to branch
+        run: |
+           git status
+
       - name: Create PR and Notify via Github-actions
         if: env.DEPLOY != null    
         id: notify

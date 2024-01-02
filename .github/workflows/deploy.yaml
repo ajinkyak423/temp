@@ -21,6 +21,7 @@ jobs:
             - name: directory  
               run: |
                echo "Current directory: $(pwd)"
+               ls -ltra
                 
 
             # - name: create PR to deploy latest build to tanent

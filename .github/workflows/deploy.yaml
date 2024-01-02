@@ -12,7 +12,7 @@ jobs:
               run: |
                 # DEPLOY=$(echo "${{github.event.head_commit.message}}"  | sed -En 's/.*\[deploy\:(.*|\ .*)\]/\1/p' | awk '{$1=$1;print}')
                 # echo "DEPLOY=$DEPLOY"
-                DEPLOY=$(echo "${{ github.event.head_commit.message }}" | sed -En 's/.*\[deploy:(.*?)]/\1/p' | awk '{$1=$1;print}')
+                DEPLOY=$(echo "${{ github.event.head_commit.message }}" | sed -n 's/.*\[deploy:[[:space:]]*\([^]]*\)].*/\1/p')
                 echo "DEPLOY=$DEPLOY"
 
       

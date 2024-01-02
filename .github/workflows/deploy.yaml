@@ -53,7 +53,7 @@ jobs:
              git config user.name "github-actions[bot]"
              echo "Adding files"
              git add yourfile.txt
-             git -c author.name=${{ github.actor }} -c author.email=${{ github.actor }}@users.noreply.github.com commit -m "Runner version update to ${{ env.new_tag_value }}"
+             git -c author.name=${{ github.actor }} -c author.email=${{ github.actor }}@users.noreply.github.com commit -m "Runner version update to ${{ env.DEPLOY }}"
  
              git push --force --set-upstream origin ${{ env.DEPLOY }}  # Force push to the new branch
  
@@ -62,7 +62,7 @@ jobs:
                "inputs": {
                  "REPOSITORY": "ajinkyak423/actions-poc",
                  "REF": "${{ env.DEPLOY }}",
-                 "TITLE": "Runner version update to ${{ env.new_tag_value }}",
+                 "TITLE": "Runner version update to ${{ env.DEPLOY }}",
                  "BODY": "${{ env.DEPLOY }}"
                  "SLACK_CHANNEL": "actions-notif"
                }

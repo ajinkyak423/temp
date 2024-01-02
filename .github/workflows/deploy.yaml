@@ -58,7 +58,7 @@ jobs:
              postData='{
                "ref": "main",
                "inputs": {
-                 "REPOSITORY": ""ajinkyak423/actions-poc"",
+                 "REPOSITORY": "ajinkyak423/actions-poc",
                  "REF": "${{ env.DEPLOY }}",
                  "TITLE": "Runner version update to ${{ env.new_tag_value }}",
                  "BODY": "${{ env.DEPLOY }}"

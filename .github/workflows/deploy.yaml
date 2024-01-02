@@ -63,7 +63,7 @@ jobs:
                  "REPOSITORY": "ajinkyak423/actions-poc",
                  "REF": "${{ env.DEPLOY }}",
                  "TITLE": "Runner version update to ${{ env.DEPLOY }}",
-                 "BODY": "${{ env.DEPLOY }}"
+                 "BODY": "${{ env.DEPLOY }}",
                  "SLACK_CHANNEL": "actions-notif"
                }
              }'

@@ -16,11 +16,11 @@ jobs:
           echo "DEPLOY=$DEPLOY" >> $GITHUB_ENV
 
       - name: checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: create PR to deploy latest build to tenant
         if: env.DEPLOY != null
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ajinkyak423/actions-poc
           path: actions-poc

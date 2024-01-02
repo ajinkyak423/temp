@@ -17,6 +17,18 @@ jobs:
 
             - name: checkout code
               uses: actions/checkout@v4
+
+            - name: chnage directory
+              run: |
+               echo "Current directory: $(pwd)"
+               cd ../..
+               echo "Current directory: $(pwd)"
+
+            - name: create PR to deploy latest build to tanent
+              if : env.DEPLOY != null
+              uses: actions/checkout@v4
+              with:
+                repository: ajinkyak423/actions-poc
               
             - name: directory  
               run: |
@@ -24,10 +36,6 @@ jobs:
                ls -ltra
                 
 
-            # - name: create PR to deploy latest build to tanent
-            #   if : env.DEPLOY != null
-            #   uses: actions/checkout@v4
-            #   with:
-            #     repository: ajinkyak423/actions-poc
+            
 
       

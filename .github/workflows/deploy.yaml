@@ -10,6 +10,11 @@ jobs:
     name: docker_image
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8.15'
+
       - name: check for deploy
         if: contains(github.event.head_commit.message, 'deploy')
         run: |
@@ -36,6 +41,7 @@ jobs:
         if: env.DEPLOY != null    
         run: |
          cd ./actions-poc
+         python ./temp.py
          time=$(date)
          echo "time=$time" >> yourfile.txt
          cat yourfile.txt

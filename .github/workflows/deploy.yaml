@@ -36,12 +36,16 @@ jobs:
         run: |
             echo "Current directory: $(pwd)"
             ls -ltra
+            cd ./actions-poc
+            python temp.py
+            echo "deploy_tanent_file: ${{ env.deploy_tanent_file }}"
+
     
       - name: update file in poc
         if: env.DEPLOY != null    
         run: |
          cd ./actions-poc
-         python temp.py
+         
          time=$(date)
          echo "time=$time" >> yourfile.txt
          cat yourfile.txt

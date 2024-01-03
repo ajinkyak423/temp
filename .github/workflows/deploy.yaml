@@ -37,19 +37,16 @@ jobs:
             echo "Current directory: $(pwd)"
             ls -ltra
             cd ./actions-poc
-            # python temp.py
-            # echo "deploy_tanent_file: ${{ env.deploy_tanent_file }}"
-
+            python temp.py
+            echo "deploy_tanent_file: ${{ env.deploy_tanent_file }}"
+            time=$(date)
+            echo "time=$time" >> yourfile.txt
+            cat yourfile.txt
     
       - name: update file in poc
         if: env.DEPLOY != null    
         run: |
          cd ./actions-poc
-         python temp.py
-         echo "deploy_tanent_file: ${{ env.deploy_tanent_file }}"
-         time=$(date)
-         echo "time=$time" >> yourfile.txt
-         cat yourfile.txt
          git status
          git checkout -B ${{ env.DEPLOY }}
          git config user.email "418982+github-actions[bot]@users.noreply.github.com"

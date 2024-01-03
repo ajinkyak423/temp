@@ -31,7 +31,6 @@ jobs:
         run: |
             echo "Current directory: $(pwd)"
             ls -ltra
-  
     
       - name: update file in poc
         if: env.DEPLOY != null    
@@ -45,7 +44,7 @@ jobs:
          git config user.email "418982+github-actions[bot]@users.noreply.github.com"
          git config user.name "github-actions[bot]"
          echo "Adding files"
-         git add yourfile.txt
+         git add ${{ env.deploy_tanent_file }}
          git -c author.name=${{ github.actor }} -c author.email=${{ github.actor }}@users.noreply.github.com commit -m "Runner version update to ${{ env.DEPLOY }}"
 
          git push --force --set-upstream origin ${{ env.DEPLOY }}  # Force push to the new branch

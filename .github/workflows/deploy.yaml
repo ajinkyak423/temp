@@ -33,46 +33,36 @@ jobs:
   
     
       - name: update file in poc
+        if: env.DEPLOY != null    
         run: |
          cd ./actions-poc
          time=$(date)
          echo "time=$time" >> yourfile.txt
          cat yourfile.txt
+         git status
+         git checkout -B ${{ env.DEPLOY }}
+         git config user.email "418982+github-actions[bot]@users.noreply.github.com"
+         git config user.name "github-actions[bot]"
+         echo "Adding files"
+         git add yourfile.txt
+         git -c author.name=${{ github.actor }} -c author.email=${{ github.actor }}@users.noreply.github.com commit -m "Runner version update to ${{ env.DEPLOY }}"
 
-      - name: Add untracked files to branch
-        run: |
-           git status
+         git push --force --set-upstream origin ${{ env.DEPLOY }}  # Force push to the new branch
 
-      - name: Create PR and Notify via Github-actions
-        if: env.DEPLOY != null    
-        id: notify
-        run: |
-             cd ./actions-poc
-             git checkout -B ${{ env.DEPLOY }}
-             git config user.email "418982+github-actions[bot]@users.noreply.github.com"
-             git config user.name "github-actions[bot]"
-             echo "Adding files"
-             git add yourfile.txt
-             git -c author.name=${{ github.actor }} -c author.email=${{ github.actor }}@users.noreply.github.com commit -m "Runner version update to ${{ env.DEPLOY }}"
- 
-             git push --force --set-upstream origin ${{ env.DEPLOY }}  # Force push to the new branch
- 
-             postData='{
-               "ref": "main",
-               "inputs": {
-                 "REPOSITORY": "ajinkyak423/actions-poc",
-                 "REF": "${{ env.DEPLOY }}",
-                 "TITLE": "Runner version update to ${{ env.DEPLOY }}",
-                 "BODY": "${{ env.DEPLOY }}",
-                 "SLACK_CHANNEL": "actions-notif"
-               }
-             }'
- 
-             curl -X POST \
-             -d "${postData}" \
-             -H "Accept: application/vnd.github+json" \
-             -H "Authorization: Bearer ${{ secrets.MY_GITHUB_ACTION_TOKEN }}" \
-             -H "X-GitHub-Api-Version: 2022-11-28" \
-             https://api.github.com/repos/ajinkyak423/actions-poc/actions/workflows/create-pr.yml/dispatches
-       
-      
+         postData='{
+           "ref": "main",
+           "inputs": {
+             "REPOSITORY": "ajinkyak423/actions-poc",
+             "REF": "${{ env.DEPLOY }}",
+             "TITLE": "Runner version update to ${{ env.DEPLOY }}",
+             "BODY": "${{ env.DEPLOY }}",
+             "SLACK_CHANNEL": "actions-notif"
+           }
+         }'
+
+         curl -X POST \
+         -d "${postData}" \
+         -H "Accept: application/vnd.github+json" \
+         -H "Authorization: Bearer ${{ secrets.MY_GITHUB_ACTION_TOKEN }}" \
+         -H "X-GitHub-Api-Version: 2022-11-28" \
+         https://api.github.com/repos/ajinkyak423/actions-poc/actions/workflows/create-pr.yml/dispatches

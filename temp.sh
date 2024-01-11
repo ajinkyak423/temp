@@ -4,8 +4,9 @@
 # tenant_names=$(echo "$COMMIT_MESSAGE" | sed -n 's/.*\[deploy:[[:space:]]*\([^]]*\)].*/\1/p')
 # echo "Extracted Tenant Names: $tenant_names"
 
-TAG="1629119469-170f8167-car----14792-[cust{om@@e#$@rio-us...er-i:nvit____easdfhkjfhiuhdf___"
-TAG=$(echo "${TAG}" | sed -E  -e 's/-+/-/g' -e 's/_+/_/g' -e 's/.+/./g' -e 's/[^a-zA-Z0-9._-]//g'  -e 's/[._-]*$//g')
+# TAG="1629119469-170f8167-car----14792-[cust{om@@e#$@rio-us...er-i:nvit____easdfhkjfhiuhdf___"
+TAG="1629119469-9225fca---custom...action"
+TAG=$(echo "${TAG}" | sed -E  -e 's/-+/-/g' -e 's/_+/_/g' -e 's/\.+/./g' -e 's/[^a-zA-Z0-9._-]//g'  -e 's/[._-]*$//g')
 TAG=${TAG:0:63}
 # echo "your_string_here" | sed -n '/^[a-zA-Z0-9._-]//g*[a-zA-Z0-9]*$//g'
 

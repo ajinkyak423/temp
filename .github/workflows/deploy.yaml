@@ -71,6 +71,7 @@ jobs:
            git config user.name "github-actions[bot]"
            echo "Adding files"
            git add .
+           git push origin ${{ env.CURRENT_DATE }}-auto-deploy
            # get base branch name (usually master or main) through git command
            BASE=$(git remote show origin | grep HEAD | awk '{print $3}')
            echo "BASE=$BASE"
@@ -79,7 +80,7 @@ jobs:
              "title":"this is title",
              "body":"this is body",
              "head":"${{ env.CURRENT_DATE }}-auto-deploy",
-             "base":"$BASE"
+             "base":"'$BASE'"
            }'
    
            # use curl -w and jq -s to save response and status_code header as one json object

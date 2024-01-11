@@ -68,6 +68,7 @@ jobs:
         run: |
            git checkout -B ${{ env.CURRENT_DATE }}-auto-deploy
            git add .
+           git -c author.name=${{ github.actor }} -c author.email=${{ github.actor }}@users.noreply.github.com commit -m "Runner version update"
            # get base branch name (usually master or main) through git command
            BASE=$(git remote show origin | grep HEAD | awk '{print $3}')
            echo "BASE=$BASE"
@@ -75,7 +76,7 @@ jobs:
            postData='{
              "title":"this is title",
              "body":"this is body",
-             "head":"ak",
+             "head":"${{ env.CURRENT_DATE }}-auto-deploy",
              "base":"main"
            }'
    

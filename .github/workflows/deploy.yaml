@@ -67,6 +67,8 @@ jobs:
         id: cpr
         run: |
            git checkout -B ${{ env.CURRENT_DATE }}-auto-deploy
+           git config user.email "418982+github-actions[bot]@users.noreply.github.com"
+           git config user.name "github-actions[bot]"
            git add .
            git -c author.name=${{ github.actor }} -c author.email=${{ github.actor }}@users.noreply.github.com commit -m "Runner version update"
            # get base branch name (usually master or main) through git command

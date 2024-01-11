@@ -73,6 +73,7 @@ jobs:
            git add .
            # get base branch name (usually master or main) through git command
            BASE=$(git remote show origin | grep HEAD | awk '{print $3}')
+           echo "BASE=$BASE"
 
            postData='{
              "title":"this is title",

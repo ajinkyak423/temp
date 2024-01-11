@@ -79,7 +79,7 @@ jobs:
              "title":"this is title",
              "body":"this is body",
              "head":"${{ env.CURRENT_DATE }}-auto-deploy",
-             "base":"'$BASE'"
+             "base":"$BASE"
            }'
    
            # use curl -w and jq -s to save response and status_code header as one json object

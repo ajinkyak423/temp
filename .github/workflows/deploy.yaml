@@ -75,7 +75,7 @@ jobs:
            postData='{
              "title":"this is title",
              "body":"this is body",
-             "head":"${{ env.CURRENT_DATE }}-auto-deploy",
+             "head":"ak",
              "base":"main"
            }'
    

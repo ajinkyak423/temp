@@ -73,7 +73,7 @@ jobs:
           branch: ${{ env.CURRENT_DATE }}-auto-deploy
           delete-branch: true
           title: 'SummonPlatform version change for ${{ inputs.TENANTS_NAME }}'
-          labels: auto-deploy-from-summon-platform
+          labels: "automerge"
         
       - name: Wait for PR to be ready
         if: ${{ steps.cpr.outputs.pull-request-number != '' }}
@@ -81,7 +81,7 @@ jobs:
           status=""
           retry_count=6
           while [[ "$status" != "clean" && $retry_count -ne 0 ]]; do
-            sleep 20
+            sleep 5
             status=$(curl -sS -H "Accept: application/vnd.github.v3+json" -u ridecell-github-action:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/Ridecell/kubernetes-summon/pulls/${{ steps.cpr.outputs.pull-request-number }} | jq '.mergeable_state' | tr -d '"')
             echo $status
             ((retry_count--))
@@ -93,7 +93,10 @@ jobs:
         uses: "pascalgn/automerge-action@v0.16.2"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "auto-deploy-from-summon-platform"
+          MERGE_LABELS: "automerge"
           MERGE_METHOD: "squash"
-          MERGE_METHOD_LABEL_REQUIRED: "true"
+          MERGE_RETRIES: "6"
+          MERGE_RETRY_SLEEP: "20000"
           PULL_REQUEST: "${{ steps.cpr.outputs.pull-request-number }}"
+
+          

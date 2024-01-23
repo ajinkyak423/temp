@@ -39,7 +39,7 @@ jobs:
             # python temp.py
             # echo "deploy_tanent_file=${{ env.deploy_tanent_file }}"
             time=$(date)
-            echo "time=$time" >> yourfile.txt
+            # echo "time=$time" >> yourfile.txt
             echo "CURRENT_DATE=$(date +'%s')" >> $GITHUB_ENV
             cat yourfile.txt
     

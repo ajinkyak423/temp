@@ -98,4 +98,5 @@ jobs:
           MERGE_REQUIRED_APPROVALS: "1"
           MERGE_RETRIES: "6"
           MERGE_RETRY_SLEEP: "20000"
-          PULL_REQUEST: "${{ steps.cpr.outputs.pull-request-number }}
+          PULL_REQUEST: "${{ steps.cpr.outputs.pull-request-number }}"
+          

@@ -75,17 +75,17 @@ jobs:
           title: 'SummonPlatform version change for ${{ inputs.TENANTS_NAME }}'
           labels: "auto-deploy"
         
-      # - name: Wait for PR to be ready
-      #   if: ${{ steps.cpr.outputs.pull-request-number != '' }}
-      #   run: |
-      #     status=""
-      #     retry_count=6
-      #     while [[ "$status" != "clean" && $retry_count -ne 0 ]]; do
-      #       sleep 20
-      #       status=$(curl -sS -H "Accept: application/vnd.github.v3+json" -u ridecell-github-action:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/Ridecell/kubernetes-summon/pulls/${{ steps.cpr.outputs.pull-request-number }} | jq '.mergeable_state' | tr -d '"')
-      #       echo $status
-      #       ((retry_count--))
-      #     done
+      - name: Wait for PR to be ready
+        if: ${{ steps.cpr.outputs.pull-request-number != '' }}
+        run: |
+          status=""
+          retry_count=6
+          while [[ "$status" != "clean" && $retry_count -ne 0 ]]; do
+            sleep 20
+            status=$(curl -sS -H "Accept: application/vnd.github.v3+json" -u ridecell-github-action:${{ secrets.GITHUB_TOKEN }} https://api.github.com/repos/Ridecell/kubernetes-summon/pulls/${{ steps.cpr.outputs.pull-request-number }} | jq '.mergeable_state' | tr -d '"')
+            echo $status
+            ((retry_count--))
+          done
     
       # it has auto-update for the branch. Default option is merge for auto-update branch.
       - name: automerge

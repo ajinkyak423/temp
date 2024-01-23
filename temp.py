@@ -36,4 +36,4 @@ except Exception as e:
     logger.error("Error rendering template: %s", e)
     sys.exit(1)
 
-print("secretDict: ", secretDict)
+\

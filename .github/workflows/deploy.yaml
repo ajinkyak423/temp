@@ -32,15 +32,15 @@ jobs:
       #     path: actions-poc
       #     token: ${{ secrets.MY_GITHUB_ACTION_TOKEN }}
 
-      # - name: directory
-      #   run: |
-      #       echo "Current directory: $(pwd)"
-      #       ls -ltra
-      #       # python temp.py
-      #       # echo "deploy_tanent_file=${{ env.deploy_tanent_file }}"
-      #       time=$(date)
-      #       echo "time=$time" >> yourfile.txt
-      #       echo "CURRENT_DATE=$(date +'%s')" >> $GITHUB_ENV
+      - name: directory
+        run: |
+            echo "Current directory: $(pwd)"
+            ls -ltra
+            # python temp.py
+            # echo "deploy_tanent_file=${{ env.deploy_tanent_file }}"
+            time=$(date)
+            # echo "time=$time" >> yourfile.txt
+            echo "CURRENT_DATE=$(date +'%s')" >> $GITHUB_ENV
       #       cat yourfile.txt
     
       # - name: update file in poc

@@ -69,7 +69,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Summon version update for ${{ inputs.TENANTS_NAME }}
-          committer: ridecell-github-action <devops+github-actions@ridecell.com>
+          committer: ajinkyak423 <ajinkyakumbhar423@gmail.com>
           branch: ${{ env.CURRENT_DATE }}-auto-deploy
           delete-branch: true
           title: 'SummonPlatform version change for ${{ inputs.TENANTS_NAME }}'

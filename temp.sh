@@ -9,5 +9,5 @@ TAG="1629119469-9225fca-customac#ti.on_"
 TAG=$(echo "${TAG}" | sed -E -e 's/[^a-zA-Z0-9_-]//g' -e 's/-+/-/g' -e 's/_+/_/g' -e 's/[_-]*$//g')
 TAG=${TAG:0:63}
 # echo "your_string_here" | sed -n '/^[a-zA-Z0-9._-]//g*[a-zA-Z0-9]*$//g'
-
+echo "hii"
 echo "TAG=$TAG"

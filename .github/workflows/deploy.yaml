@@ -73,7 +73,7 @@ jobs:
           branch: ${{ env.CURRENT_DATE }}-auto-deploy
           delete-branch: true
           title: 'SummonPlatform version change for ${{ inputs.TENANTS_NAME }}'
-          labels: "auto-deploy"
+          labels: "automerge"
         
       # - name: Wait for PR to be ready
       #   if: ${{ steps.cpr.outputs.pull-request-number != '' }}
@@ -93,7 +93,7 @@ jobs:
         uses: "pascalgn/automerge-action@v0.16.2"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "auto-deploy"
+          MERGE_LABELS: "automerge"
           MERGE_METHOD: "squash"
           MERGE_METHOD_LABELS: "autosquash=squash"
           MERGE_REQUIRED_APPROVALS: "1"

@@ -95,6 +95,9 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_LABELS: "auto-deploy"
           MERGE_METHOD: "squash"
-          MERGE_METHOD_LABELS: "squash"
+          MERGE_METHOD_LABELS: "autosquash=squash"
+          MERGE_REQUIRED_APPROVALS: 1
+          MERGE_RETRIES: 6
+          MERGE_RETRY_SLEEP: 20000
           MERGE_METHOD_LABEL_REQUIRED: "true"
           PULL_REQUEST: "${{ steps.cpr.outputs.pull-request-number }}"

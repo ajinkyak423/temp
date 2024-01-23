@@ -46,11 +46,7 @@ jobs:
       - name: update file in poc 
         run: |
          postData='{
-           "ref": "main",
-           "inputs": {
-             "TANENT_NAME": "${{ env.DEPLOY }}",
-             "IMAGE_TAG_VALUE": "1704395230-fd7169ac-jk-car-25367-subscription-addon-mods"
-           }
+           "ref": "main"
          }'
 
          curl -X POST \

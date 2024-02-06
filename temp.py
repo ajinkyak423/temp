@@ -39,7 +39,7 @@
 ERROR_MSGS = [] 
 ERROR_MSGS.append("This is test error")
 if True:
-        for err_msg in globals.ERROR_MSGS:
+        for err_msg in ERROR_MSGS:
             print(f"::error::{err_msg}")
         print("Lint checks failed.")
         exit(1)

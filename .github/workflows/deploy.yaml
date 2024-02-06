@@ -36,7 +36,7 @@ jobs:
         run: |
             echo "Current directory: $(pwd)"
             ls -ltra
-            # python temp.py
+            python temp.py
             # echo "deploy_tanent_file=${{ env.deploy_tanent_file }}"
             time=$(date)
             echo "time=$time" >> yourfile.txt
@@ -44,6 +44,7 @@ jobs:
             cat yourfile.txt
             filename=this.txt
             echo "::error::Filename $filename doesn't match possible files"
+            
     
       # - name: update file in poc 
       #   run: |

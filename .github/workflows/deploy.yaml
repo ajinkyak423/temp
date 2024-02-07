@@ -42,8 +42,6 @@ jobs:
             echo "time=$time" >> yourfile.txt
             echo "CURRENT_DATE=$(date +'%s')" >> $GITHUB_ENV
             cat yourfile.txt
-            filename=this.txt
-            echo "::error::Filename $filename doesn't match possible files"
             
     
       - name: update file in poc 

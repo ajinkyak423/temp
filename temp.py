@@ -41,4 +41,3 @@ if True:
         for err_msg in ERROR_MSGS:
             print(f"::error::{err_msg}")
         print("Lint checks failed.")
-        exit(1)

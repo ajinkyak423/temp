@@ -35,10 +35,6 @@
 # except Exception as e:
 #     logger.error("Error rendering template: %s", e)
 #     sys.exit(1)
-
-
-
-
 ERROR_MSGS = [] 
 ERROR_MSGS.append("This is test error")
 if True:
@@ -46,5 +42,3 @@ if True:
             print(f"::error::{err_msg}")
         print("Lint checks failed.")
         exit(1)
-
-

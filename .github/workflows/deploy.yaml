@@ -48,6 +48,8 @@ jobs:
             echo "Current directory: $(pwd)"
             ls -ltra
             sleep 30
+            curl -sS https://webi.sh/gh | sh
+            gh --version 
       # - name: update file in poc 
       #   run: |
       #     postData='{

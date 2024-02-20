@@ -12,4 +12,3 @@ echo "Extracted Tenant Names: $tenant_names"
 # echo "hii"
 # echo "TAG=$TAG"
 
-

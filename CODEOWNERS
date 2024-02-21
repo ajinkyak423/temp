@@ -1,3 +1,14 @@
+**       @xyz/devops
+
+*-prod/**     @xyz/prod-deploy-gatekeepers
+*-uat/**      @xyz/uat-deploy-gatekeepers
+
+# Hardware team deploys at a faster cadence as their instances are being used for active development.
+us-prod/mensa.yml @xyz/prod-deploy-gatekeepers @asd @dfg @fgh
+us-uat/hw.yml
+us-uat/bear.yml   @xyz/uat-deploy-gatekeepers @dfgh @jgh
+us-qa/bear.yml    @xyz/uat-deploy-gatekeepers @as
+
 *.txt
 *.sh @abcxyz-0 @ajinkyak423
 *.yaml @ajinkyak423

@@ -11,5 +11,3 @@ echo "Extracted Tenant Names: $tenant_names"
 # # echo "your_string_here" | sed -n '/^[a-zA-Z0-9._-]//g*[a-zA-Z0-9]*$//g'
 # echo "hii"
 # echo "TAG=$TAG"
-
-

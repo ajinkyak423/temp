@@ -34,11 +34,11 @@
 #     rendered = template.render(secret=secretDict)
 # except Exception as e:
 #     logger.error("Error rendering template: %s", e)
-#     sys.exit(1)
-ERROR_MSGS = [] 
-ERROR_MSGS.append("This is test error")
-if True:
-        for err_msg in ERROR_MSGS:
+# #     sys.exit(1)
+# ERROR_MSGS = [] 
+# ERROR_MSGS.append("This is test error")
+# if True:
+#         for err_msg in ERROR_MSGS:
 
 
                 
